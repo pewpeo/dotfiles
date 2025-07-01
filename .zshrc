@@ -164,3 +164,5 @@ load-nvmrc
 bindkey '^F' fzf-history-widget
 bindkey '^R' history-search-multi-word
 
+bindkey "^d" kill-word
+bindkey "^[d" kill-line
