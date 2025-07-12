@@ -1,0 +1,34 @@
+[user]
+	name = pewpeo
+	email = 2847698+pewpeo@users.noreply.github.com
+[core]
+	excludesfile = /Users/peter/.gitignore_global
+	editor = nano
+[alias]
+	gui = !sh -c '/usr/local/opt/git/libexec/git-core/git-gui'
+	adog = log --all --decorate --oneline --graph
+	dog = log --decorate --oneline --graph
+
+	# orig
+	# lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
+
+	# no date
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %s %C(dim)- %an%C(reset)%C(auto)%d%C(reset)'
+
+	# orig:
+	# lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+
+	# standard date
+	lg2 = log --graph --abbrev-commit --decorate --date=format-local:'%d.%m.%Y %H:%M:%S' --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %s %C(dim)- %an%C(reset)'
+
+	lg = lg1
+[gui]
+	fontui = -family \"Helvetica Neue\" -size 13 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family Menlo -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
