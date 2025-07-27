@@ -1,0 +1,18 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --color-only --paging=never
+  # Command used when displaying the current branch git log in the main window
+  branchLogCmd: git lg --color=always {{branchName}} --
+  # Commands used to display git log of all branches in the main window, they will be cycled in order of appearance (array of strings)
+  allBranchesLogCmds:
+    - git lg --color=always --all
+  # If true, periodically fetch from remote
+  autoFetch: false
+  # If true, pass the --all arg to git fetch
+  fetchAll: false
+
+# Add to ~/.gitconfig:
+# [delta]
+# 	syntax-theme = Visual Studio Dark+
+# Or: --syntax-theme="Visual Studio Dark+"
