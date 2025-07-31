@@ -21,6 +21,8 @@ gui:
   nerdFontsVersion: '3'
   # If true (default), file icons are shown in the file views. Only relevant if NerdFontsVersion is not empty.
   showFileIcons: true
+  # If true, increase the height of the focused side window; creating an accordion effect.
+  expandFocusedSidePanel: true
 
 # Add to ~/.gitconfig:
 # [delta]
