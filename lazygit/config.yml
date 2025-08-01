@@ -23,6 +23,15 @@ gui:
   showFileIcons: true
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: true
+customCommands:
+  - key: <c-f>
+    description: Fetch branch
+    context: localBranches
+    command: git fetch origin {{.SelectedLocalBranch.Name}}
+  - key: <c-r>
+    description: Rebase
+    context: localBranches
+    command: git pull --rebase origin {{.SelectedLocalBranch.Name}}
 
 # Add to ~/.gitconfig:
 # [delta]
