@@ -1,3 +1,6 @@
+# Make PATH contain unique values
+typeset -U path PATH
+
 source $HOME/.aliases
 source $HOME/.path
 . "$HOME/.cargo/env"
