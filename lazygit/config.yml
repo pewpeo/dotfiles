@@ -23,6 +23,7 @@ gui:
   showFileIcons: true
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: true
+  enlargedSideViewLocation: top
 customCommands:
   - key: <c-f>
     description: Fetch branch
