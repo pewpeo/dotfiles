@@ -4,6 +4,13 @@
 [core]
 	excludesfile = /Users/peter/.gitignore_global
 	editor = nano
+	pager = delta
+[delta]
+	navigate = true
+	# dark = true
+	# line-numbers = true
+	syntax-theme = "Visual Studio Dark+"
+	# syntax-theme = "GitHub" # for light
 [alias]
 	gui = !sh -c '/usr/local/opt/git/libexec/git-core/git-gui'
 	adog = log --all --decorate --oneline --graph
