@@ -1,0 +1,38 @@
+return
+-- add more treesitter parsers
+{
+  "nvim-treesitter/nvim-treesitter",
+  opts = {
+    ensure_installed = {
+      "bash",
+      "c",
+      "cpp",
+      "cmake",
+      "css",
+      "dockerfile",
+      "gitignore",
+      "go",
+      "graphql",
+      "groovy",
+      "html",
+      "java",
+      "javascript",
+      "json",
+      "lua",
+      "make",
+      "markdown",
+      "markdown_inline",
+      "python",
+      "query",
+      "regex",
+      "sql",
+      "terraform",
+      "toml",
+      "tsx",
+      "typescript",
+      "vim",
+      "vimdoc",
+      "yaml",
+    },
+  },
+}
