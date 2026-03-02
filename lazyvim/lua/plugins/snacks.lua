@@ -4,7 +4,7 @@ return {
     opts = {
       picker = {
         hidden = true,
-        ignored = true,
+        ignored = false,
         sources = {
           files = {
             hidden = true, -- Show hidden/dotfiles
