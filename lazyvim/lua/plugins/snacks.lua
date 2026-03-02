@@ -14,6 +14,14 @@ return {
       { "<c-#>", "<cmd>close<cr>", desc = "Hide Terminal", mode = "t" },
     },
     opts = {
+      terminal = {
+        win = {
+          style = "float",
+          border = "rounded",
+          width = 0.9,
+          height = 0.9,
+        },
+      },
       picker = {
         hidden = true,
         ignored = false,
