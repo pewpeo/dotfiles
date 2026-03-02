@@ -21,6 +21,8 @@ return {
       --   Misc = { text = { "—", "⫿" }, highlight = "ScrollbarMisc" },
       -- },
       handlers = {
+        cursor = false,
+        diagnostic = true,
         gitsigns = true,
       },
     },
