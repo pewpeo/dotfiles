@@ -14,7 +14,6 @@ return
       -- pyright will be automatically installed with mason and loaded with lspconfig
       pyright = {},
       clangd = {},
-      rust_analyzer = {},
       biome = {},
     },
   },
