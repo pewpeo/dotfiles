@@ -1,6 +1,18 @@
 return {
   {
     "folke/snacks.nvim",
+    keys = {
+      { "<c-/>", false },
+      { "<c-/>", false, mode = "t" },
+      {
+        "<c-#>",
+        function()
+          Snacks.terminal()
+        end,
+        desc = "Toggle Terminal",
+      },
+      { "<c-#>", "<cmd>close<cr>", desc = "Hide Terminal", mode = "t" },
+    },
     opts = {
       picker = {
         hidden = true,
