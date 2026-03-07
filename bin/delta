@@ -1,0 +1,7 @@
+# Wrapper script for delta to automatically switch between light and dark themes based on the system appearance.
+#!/bin/zsh
+if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
+  exec /opt/homebrew/bin/delta --dark --syntax-theme='Visual Studio Dark+' "$@"
+else
+  exec /opt/homebrew/bin/delta --light --syntax-theme=GitHub "$@"
+fi
