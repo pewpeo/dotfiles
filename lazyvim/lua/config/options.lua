@@ -19,3 +19,17 @@ vim.o.incsearch = true -- incremental search
 vim.opt.termguicolors = true
 
 vim.g.lazyvim_prettier_needs_config = true
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  pattern = "*.md",
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
