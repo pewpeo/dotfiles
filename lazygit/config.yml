@@ -1,7 +1,7 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never --navigate --line-numbers
+  pagers:
+    - colorArg: always
+    - pager: delta-auto --paging=never
   # Command used when displaying the current branch git log in the main window
   branchLogCmd: git lg --color=always {{branchName}} --
   # Commands used to display git log of all branches in the main window, they will be cycled in order of appearance (array of strings)
@@ -33,9 +33,3 @@ customCommands:
     description: Rebase
     context: localBranches
     command: git pull --rebase origin {{.SelectedLocalBranch.Name}}
-
-# Add to ~/.gitconfig:
-# [delta]
-# 	syntax-theme = Visual Studio Dark+
-# Or: --syntax-theme="Visual Studio Dark+"
-
