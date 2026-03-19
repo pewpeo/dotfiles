@@ -1,7 +1,7 @@
 git:
   pagers:
     - colorArg: always
-    - pager: delta-auto --paging=never
+      pager: delta-auto --paging=never
   # Command used when displaying the current branch git log in the main window
   branchLogCmd: git lg --color=always {{branchName}} --
   # Commands used to display git log of all branches in the main window, they will be cycled in order of appearance (array of strings)
@@ -14,16 +14,16 @@ git:
 gui:
   theme:
     selectedLineBgColor:
-      - reverse
+      - default # reverse
   # Nerd fonts version to use.
   # One of: '2' | '3' | empty string (default)
   # If empty, do not show icons.
-  nerdFontsVersion: '3'
+  nerdFontsVersion: "3"
   # If true (default), file icons are shown in the file views. Only relevant if NerdFontsVersion is not empty.
   showFileIcons: true
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: true
-  enlargedSideViewLocation: top
+  enlargedSideViewLocation: left
 customCommands:
   - key: <c-f>
     description: Fetch branch
@@ -33,3 +33,5 @@ customCommands:
     description: Rebase
     context: localBranches
     command: git pull --rebase origin {{.SelectedLocalBranch.Name}}
+os:
+  editPreset: "vscode"
