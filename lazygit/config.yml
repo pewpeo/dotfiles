@@ -11,6 +11,10 @@ git:
   autoFetch: false
   # If true, pass the --all arg to git fetch
   fetchAll: false
+  externalDiffCommand: "code --wait --diff"
+  commitPrefix:
+    - pattern: "^(PM-\\d+|MOIA-\\d+|NOTICKET).*"
+      replace: "$1: "
 gui:
   theme:
     selectedLineBgColor:
@@ -34,4 +38,12 @@ customCommands:
     context: localBranches
     command: git pull --rebase origin {{.SelectedLocalBranch.Name}}
 os:
+  # A shell startup file containing shell aliases or shell functions. This will be
+  # sourced before running any shell commands, so that shell functions are
+  # available in the `:` command prompt or even in custom commands.
+  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
+  shellFunctionsFile: ~/.shell-functions
   editPreset: "vscode"
+
+  # clip being an exectuable script, executing netcat to clipper
+  # copyToClipboardCmd: 'printf {{text}} | clip'
