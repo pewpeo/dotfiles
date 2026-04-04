@@ -36,6 +36,9 @@ else
   THEME_NAME="$GHOSTTY_THEME"
 fi
 
+# Bail out if we couldn't determine a theme (e.g. not running inside Ghostty)
+[[ -z "$THEME_NAME" ]] && exit 0
+
 # Resolve theme file: check custom themes first, then bundled themes
 CUSTOM_THEMES="$HOME/.config/ghostty/themes"
 BUNDLED_THEMES="/Applications/Ghostty.app/Contents/Resources/ghostty/themes"
