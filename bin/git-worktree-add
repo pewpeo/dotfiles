@@ -22,14 +22,12 @@ git-worktree-add() {
     git worktree add "$worktree_path" -b "$branch" 2>/dev/null ||
         git worktree add "$worktree_path" "$branch"
 
-    if [ -f "${repo_root}/.vscode/settings.json" ]; then
-        mkdir -p "${worktree_path}/.vscode"
-        ln -s "${repo_root}/.vscode/settings.json" "${worktree_path}/.vscode/settings.json"
+    if [ -d "${repo_root}/.vscode" ]; then
+        ln -s "${repo_root}/.vscode" "${worktree_path}/.vscode"
     fi
 
-    if [ -f "${repo_root}/.claude/settings.local.json" ]; then
-        mkdir -p "${worktree_path}/.claude"
-        ln -s "${repo_root}/.claude/settings.local.json" "${worktree_path}/.claude/settings.local.json"
+    if [ -d "${repo_root}/.claude" ]; then
+        ln -s "${repo_root}/.claude" "${worktree_path}/.claude"
     fi
 
     echo "Created worktree at ${worktree_path}"
