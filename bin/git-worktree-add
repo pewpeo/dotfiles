@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Create a new git worktree for the specified branch.
+# If the branch doesn't exist, it will be created.
+#
+# It creates a new worktree in a directory named <repo_name>.worktrees/<branch>.
+# It links the .vscode/settings.json file from the main repository.
+#
+# Usage:   git-worktree-add <branch>
+# Example: git-worktree-add feature/new-feature
+
+git-worktree-add() {
+    local repo_root
+    repo_root=$(git rev-parse --show-toplevel) || return 1
+    local repo_name=$(basename "$repo_root")
+    local branch="${1:?Usage: new-worktree <branch>}"
+    local worktree_dir="$(dirname "$repo_root")/${repo_name}.worktrees"
+    local worktree_path="${worktree_dir}/${branch}"
+
+    mkdir -p "$worktree_dir"
+
+    git worktree add "$worktree_path" -b "$branch" 2>/dev/null ||
+        git worktree add "$worktree_path" "$branch"
+
+    if [ -f "${repo_root}/.vscode/settings.json" ]; then
+        mkdir -p "${worktree_path}/.vscode"
+        ln -s "${repo_root}/.vscode/settings.json" "${worktree_path}/.vscode/settings.json"
+    fi
+
+    if [ -f "${repo_root}/.claude/settings.local.json" ]; then
+        mkdir -p "${worktree_path}/.claude"
+        ln -s "${repo_root}/.claude/settings.local.json" "${worktree_path}/.claude/settings.local.json"
+    fi
+
+    echo "Created worktree at ${worktree_path}"
+}
+
+git-worktree-add "$@"
