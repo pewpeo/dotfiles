@@ -1,0 +1,22 @@
+[Unit]
+Description=Mount APFS volume extern1
+ConditionPathExists=/dev/disk/by-uuid/e1039bae-b738-49ab-bbcf-d198a8ac65fc
+After=local-fs.target
+
+[Service]
+User=root
+Group=root
+Type=forking
+RemainAfterExit=yes
+
+ExecStart=/home/peter/Code/apfs-fuse/build/apfs-fuse \
+    -o uid=1000,gid=1000,allow_other \
+    /dev/disk/by-uuid/e1039bae-b738-49ab-bbcf-d198a8ac65fc \
+    /home/peter/srv/media/extern1
+
+ExecStop=/usr/bin/umount /home/peter/srv/media/extern1
+
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
