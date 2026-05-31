@@ -1,0 +1,6 @@
+# list mounts
+# df -Th
+# find uuid
+# lsblk -f
+alias .mount-extern1='sudo /home/peter/Code/apfs-fuse/build/apfs-fuse -o uid=1000,gid=1000,allow_other /dev/disk/by-uuid/e1039bae-b738-49ab-bbcf-d198a8ac65fc ~/srv/media/extern1'
+alias .umount-extern1='sudo umount ~/srv/media/extern1'
