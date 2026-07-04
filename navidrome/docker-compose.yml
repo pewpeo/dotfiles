@@ -5,10 +5,14 @@ services:
     ports:
       - "4533:4533"
     restart: unless-stopped
-    # environment:
+    environment:
       # Optional: put your config options customization here. Examples:
       # ND_LOGLEVEL: debug
+      ND_BACKUP_PATH: /backup
+      ND_BACKUP_SCHEDULE: "0 3 * * *"
+      ND_BACKUP_COUNT: 7
     volumes:
       - "~/navidrome/data:/data"
+      - "/mnt/backup/navidrome:/backup"
       # - "~/Music/:/music:ro"
       - "/var/lib/docker/volumes/nextcloud_aio_nextcloud_data/_data/pewpeo/files/Music:/music:ro"
