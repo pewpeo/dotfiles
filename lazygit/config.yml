@@ -2,7 +2,6 @@ git:
   pagers:
     - colorArg: always
       pager: delta-auto --paging=never
-    - externalDiffCommand: "code --wait --diff"
   # Command used when displaying the current branch git log in the main window
   branchLogCmd: git lg --color=always {{branchName}} --
   # Commands used to display git log of all branches in the main window, they will be cycled in order of appearance (array of strings)
