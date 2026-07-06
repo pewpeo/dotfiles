@@ -26,8 +26,9 @@ git-worktree-add() {
         ln -s "${repo_root}/.vscode" "${worktree_path}/.vscode"
     fi
 
-    if [ -d "${repo_root}/.claude" ]; then
-        ln -s "${repo_root}/.claude" "${worktree_path}/.claude"
+    if [ -f "${repo_root}/.claude/settings.local.json" ]; then
+        mkdir -p "${worktree_path}/.claude"
+        ln -s "${repo_root}/.claude/settings.local.json" "${worktree_path}/.claude/settings.local.json"
     fi
 
     echo "Created worktree at ${worktree_path}"
