@@ -8,10 +8,10 @@
 # at runtime, so we detect macOS appearance and read the theme file directly.
 #
 # Usage: add the following shell function to your aliases:
-#
+#   export XDG_CONFIG_HOME="$HOME/.config" # here, or in ~/.zshrc
 #   lazygit() {
 #     ~/.config/lazygit/theme.sh
-#     LG_CONFIG_FILE="$HOME/Library/Application Support/lazygit/config.yml,$HOME/.config/lazygit/theme.yml" command lazygit "$@"
+#     LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/theme.yml" command lazygit "$@"
 #   }
 
 THEME_FILE="$HOME/.config/lazygit/theme.yml"
