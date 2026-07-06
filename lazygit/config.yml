@@ -37,13 +37,25 @@ customCommands:
     description: Rebase
     context: localBranches
     command: git pull --rebase origin {{.SelectedLocalBranch.Name}}
+  - key: "<c-x>"
+    context: "commits"
+    description: "Add co-author to HEAD"
+    prompts:
+      - type: "input"
+        title: "Co-author"
+        key: "CoAuthor"
+        initialValue: "Claude <noreply@anthropic.com>"
+        suggestions:
+          command: "printf '%s\n' 'Copilot <copilot@github.com>' 'Claude <noreply@anthropic.com>' 'Codex <codex@openai.com>'"
+    command: 'git commit --amend --no-edit --trailer {{printf "Co-authored-by: %s" .Form.CoAuthor | quote}}'
+    loadingText: "Adding co-author"
 os:
   # A shell startup file containing shell aliases or shell functions. This will be
   # sourced before running any shell commands, so that shell functions are
   # available in the `:` command prompt or even in custom commands.
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
   shellFunctionsFile: ~/.shell-functions
-  editPreset: "vscode"
+  editPreset: "zed"
 
   # clip being an exectuable script, executing netcat to clipper
   # copyToClipboardCmd: 'printf {{text}} | clip'
