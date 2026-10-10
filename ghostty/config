@@ -53,7 +53,7 @@
 font-family = "SauceCodePro Nerd Font"
 font-size = 12
 # Draw fonts with a thicker stroke, if supported. # This is currently only supported on macOS.
-font-thicken = true
+font-thicken = false
 
 # 160
 window-width=200
@@ -71,6 +71,9 @@ macos-option-as-alt = left
 
 # Pick a link/path on screen via tmux-fzf-links (sends tmux prefix C-a, then C-h)
 keybind = cmd+shift+o=text:\x01\x08
+
+# Disable the bar-at-prompt behavior so cursor-style below is respected.
+shell-integration-features = no-cursor
 
 # The style of the cursor. This sets the default style. A running program can
 # still request an explicit cursor style using escape sequences (such as `CSI
